@@ -1,0 +1,14 @@
+<div class="menu">
+    <div class="menu__logo">
+        <img class="menu__logo-img" src="assets/img/logo.png" alt="logo">
+    </div>
+    <nav class="menu__container">
+        <ul class="menu__list">
+            <app-menu-item
+                *ngFor="let menuItem of menuItems"
+                [menuItem]="menuItem"
+            ></app-menu-item>
+        </ul>
+    </nav>
+    <button (click)="authorize(!isAuthorized)">{{ isAuthorized ? 'Unauthorize' : 'Authorize' }}</button>
+</div>

@@ -1,6 +1,18 @@
 <section class="mical-container__menu-section">
-    <app-menu
-        [menuItems]="getMenuItems()"
-        (authorizeEmitter)="getIsAuthorizeInfo($event)" 
-    ></app-menu>
+    <app-menu [menuItems]="getMenuItems()" (authorizeEmitter)="getIsAuthorizeInfo($event)"></app-menu>
+</section>
+
+<section class="mical-header">
+    <div class="mical-header__content-container">
+        <h1 class="mical-header__title">{{ headerTitle }}</h1>
+        <h2 class="mical-header__subtitle">{{ headerSubTitle }}</h2>
+        <p class="mical-header__content">{{ headerParagraph }}</p>
+        <div class="mical-header__buttons-container">
+            <button (click)="onClick()" class="header__button">{{ headerButtonInfo }}</button>
+            <button (click)="onClick()" class="header__button">{{ headerButtonContact }}</button>
+        </div>
+    </div>
+    <div class="mical-header__image-container">
+        <img class="header__image" src="assets/img/car.png" alt="car" />
+    </div>
 </section>

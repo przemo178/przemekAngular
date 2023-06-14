@@ -4,16 +4,15 @@ import { MicalRoutingModule } from './mical-routing.module';
 import { MicalContainerComponent } from './mical-container/mical-container.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
+import { MicalHeaderComponent } from './mical-header/mical-header.component';
 
 @NgModule({
   declarations: [
     MicalContainerComponent,
     MenuComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    MicalHeaderComponent,
   ],
-  imports: [
-    CommonModule,
-    MicalRoutingModule
-  ]
+  imports: [CommonModule, MicalRoutingModule],
 })
-export class MicalModule { }
+export class MicalModule {}

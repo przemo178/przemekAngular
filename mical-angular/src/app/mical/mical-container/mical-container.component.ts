@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IMenuItem } from '../models/menu.interface';
+import { IMenuItem, ICarouselItem } from '../models/menu.interface';
 
 @Component({
   selector: 'app-mical-container',
@@ -7,6 +7,8 @@ import { IMenuItem } from '../models/menu.interface';
   styleUrls: ['./mical-container.component.scss'],
 })
 export class MicalContainerComponent {
+  // menu section
+
   public isAuthorize: boolean = false;
   public showText: boolean = false;
 
@@ -48,18 +50,44 @@ export class MicalContainerComponent {
     return this.isAuthorize ? this.authorizedMenu : this.unauthorizedMenu;
   }
 
-  // section header
-  public headerTitle: string = 'Welcome';
-  public headerSubTitle: string = 'Car repair services';
-  public headerParagraph: string =
-    'It is a long established fact that a reader will be distracted by the redable content of a page when looking at its layout. The point of using Lorem ipsum is that it has a more-or-less normal distribution of letters.';
+  // carousel section
 
-  @Input() public headerButtonInfo: string = 'More info';
-  @Input() public headerButtonContact: string = 'Contact us';
+  public isVisible: boolean = false;
 
-  @Output() public buttonClick = new EventEmitter();
+  public carouselItems: ICarouselItem[] = [
+    {
+      id: 1,
+      title: 'Auto Diagnose',
+      imgName: 'assets/img/thr.png',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque enim eget lorem consequat, eget.',
+      type: 'innyTyp',
+    },
+    {
+      id: 2,
+      title: 'Free Fuel',
+      imgName: 'assets/img/thr1.png',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque enim eget lorem consequat, eget.',
+      type: 'innyTyp',
+    },
+    {
+      id: 3,
+      title: 'Change tires',
+      imgName: 'assets/img/thr2.png',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque enim eget lorem consequat, eget.',
+      type: 'common',
+    },
+  ];
 
-  onClick() {
-    this.buttonClick.emit();
+  // public carouselItemsEmpty: ICarouselItem[] = [];
+
+  getIsCarouselInfo(event: boolean) {
+    this.isVisible = event;
+  }
+
+  getCarouselItems(): ICarouselItem[] {
+    return this.isVisible ? this.carouselItems : this.carouselItems;
   }
 }

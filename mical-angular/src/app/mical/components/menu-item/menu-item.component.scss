@@ -1,19 +1,19 @@
-@import '../../../../assets/scss/variables';
+@import "../../../../assets/scss/variables";
 
 .menu-item {
-    width: 150px;
-    height: 75px;
-    line-height: 75px;
-    text-decoration: none;
-    text-align: center;
+  width: 150px;
+  height: 75px;
+  line-height: 75px;
+  text-decoration: none;
+  text-align: center;
 
-    &__btn-link {
-        color: $color-white;
-        font-size: 1rem;
-        text-decoration: none;
-        transition: 0.3s;
-        &:hover {
-            color: $color-green;
-        }
+  &__btn-link {
+    color: $color-white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: 0.3s;
+    &:hover {
+      color: $color-green;
     }
+  }
 }

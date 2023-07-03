@@ -70,7 +70,7 @@ export class MicalContainerComponent {
       type: 'common',
     },
   ];
-
+  
   getIsAuthorizeInfo(event: boolean) {
     this.isAuthorize = event;
   }

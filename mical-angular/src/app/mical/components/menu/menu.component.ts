@@ -1,19 +1,22 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Input } from '@angular/core';
 import { IMenuItem } from '../../models/menu.interface';
+import { MenuService } from '../../services/menu.service';
+import { BehaviorSubject, map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
-  @Input() public menuItems: IMenuItem[] = [];
-  @Output() public authorizeEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() menuItems: IMenuItem[] = [];
   
-  public isAuthorized: boolean = false;
+  public isAuthorized$: BehaviorSubject<boolean> = this._menuService.isAuthorize$;
 
-  authorize(isAuthorize: boolean) {
-    this.authorizeEmitter.emit(isAuthorize);
-    this.isAuthorized = isAuthorize;
+  constructor(private _menuService: MenuService) {}
+
+  authorize() {
+    this._menuService.isAuthorize$.next(!this.isAuthorized$.getValue());
   }
 }

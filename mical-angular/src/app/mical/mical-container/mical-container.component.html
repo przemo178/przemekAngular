@@ -1,5 +1,5 @@
 <section class="mical-container__menu-section">
-    <app-menu [menuItems]="getMenuItems()" (authorizeEmitter)="getIsAuthorizeInfo($event)"></app-menu>
+    <app-menu [menuItems]="menuItems$ | async"></app-menu>
 </section>
 
 <section class="mical-container__header-section">

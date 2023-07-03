@@ -42,16 +42,6 @@ export class MicalContainerComponent {
     },
   ];
 
-  getIsAuthorizeInfo(event: boolean) {
-    this.isAuthorize = event;
-  }
-
-  getMenuItems(): IMenuItem[] {
-    return this.isAuthorize ? this.authorizedMenu : this.unauthorizedMenu;
-  }
-
-  // carousel section
-
   public isVisible: boolean = false;
 
   public carouselItems: ICarouselItem[] = [
@@ -81,7 +71,13 @@ export class MicalContainerComponent {
     },
   ];
 
-  // public carouselItemsEmpty: ICarouselItem[] = [];
+  getIsAuthorizeInfo(event: boolean) {
+    this.isAuthorize = event;
+  }
+
+  getMenuItems(): IMenuItem[] {
+    return this.isAuthorize ? this.authorizedMenu : this.unauthorizedMenu;
+  }
 
   getIsCarouselInfo(event: boolean) {
     this.isVisible = event;

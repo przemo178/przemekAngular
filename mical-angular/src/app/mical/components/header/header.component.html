@@ -3,8 +3,8 @@
     <h2 class="header__subtitle">{{ headerSubTitle }}</h2>
     <p class="header__content">{{ headerParagraph }}</p>
     <div class="header__buttons-container">
-        <button (click)="onClick()" class="header__button">{{ headerButtonInfo }}</button>
-        <button (click)="onClick()" class="header__button">{{ headerButtonContact }}</button>
+        <button (click)="onClick(true)" class="header__button">{{ headerButtonInfo }}</button>
+        <button (click)="onClick(false)" class="header__button">{{ headerButtonContact }}</button>
     </div>
 </div>
 <div class="headerImg">

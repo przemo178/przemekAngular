@@ -3,9 +3,9 @@
 </section>
 
 <section class="mical-container__header-section">
-    <app-header></app-header>
+    <app-header (buttonClick)="getIsCarouselInfo($event)"></app-header>
 </section>
 
-<section class="mical-container__carousel-section">
-    <app-carousel [carouselItems]="getCarouselItems()" (visibleEmitter)="getIsCarouselInfo($event)"></app-carousel>
+<section class="mical-container__carousel-section" *ngIf="isVisible">
+    <app-carousel [carouselItems]="getCarouselItems()"></app-carousel>
 </section>

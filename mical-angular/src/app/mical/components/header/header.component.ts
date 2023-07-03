@@ -15,9 +15,10 @@ export class HeaderComponent {
   @Input() public headerButtonInfo: string = 'More info';
   @Input() public headerButtonContact: string = 'Contact us';
 
-  @Output() public buttonClick = new EventEmitter();
+  @Output() public buttonClick: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
-  onClick() {
-    this.buttonClick.emit();
+  onClick(isOpen: boolean) {
+    this.buttonClick.emit(isOpen);
   }
 }

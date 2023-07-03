@@ -7,9 +7,10 @@ import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { CarouselItemComponent } from './components/carousel-item/carousel-item.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @NgModule({
-  declarations: [MicalContainerComponent, MenuComponent, MenuItemComponent, HeaderComponent, CarouselComponent, CarouselItemComponent],
+  declarations: [MicalContainerComponent, MenuComponent, MenuItemComponent, HeaderComponent, CarouselComponent, CarouselItemComponent, ContactFormComponent],
   imports: [CommonModule, MicalRoutingModule],
 })
 export class MicalModule {}

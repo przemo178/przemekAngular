@@ -1,0 +1,22 @@
+<div class="carousel-container">
+    <app-carousel-item *ngFor="let carouselItem of carouselItems" [carouselItem]="carouselItem"></app-carousel-item>
+    <div class="carousel-container__arrow">
+        <a class="carousel-container__arrow-btn" href="#"><i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- <ng-container *ngIf="true">
+    <button (click)="switchEditMode()"> NgIf Button</button>
+    <div class="carousel-container" *ngIf="editMode">
+        <app-carousel-item *ngFor="let carouselItem of carouselItems" [carouselItem]="carouselItem"></app-carousel-item>
+        <div class="carousel-container__arrow">
+            <a class="carousel-container__arrow-btn" href="#"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+    </div>
+</ng-container> -->

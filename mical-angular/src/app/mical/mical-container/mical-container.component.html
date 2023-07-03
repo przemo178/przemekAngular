@@ -1,6 +1,11 @@
 <section class="mical-container__menu-section">
-    <app-menu
-        [menuItems]="getMenuItems()"
-        (authorizeEmitter)="getIsAuthorizeInfo($event)" 
-    ></app-menu>
+    <app-menu [menuItems]="getMenuItems()" (authorizeEmitter)="getIsAuthorizeInfo($event)"></app-menu>
+</section>
+
+<section class="mical-container__header-section">
+    <app-header (buttonClick)="getIsCarouselInfo($event)"></app-header>
+</section>
+
+<section class="mical-container__carousel-section" *ngIf="isVisible">
+    <app-carousel [carouselItems]="getCarouselItems()"></app-carousel>
 </section>

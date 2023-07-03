@@ -1,0 +1,12 @@
+<div class="header">
+    <h1 class="header__title">{{ headerTitle }}</h1>
+    <h2 class="header__subtitle">{{ headerSubTitle }}</h2>
+    <p class="header__content">{{ headerParagraph }}</p>
+    <div class="header__buttons-container">
+        <button (click)="onClick(true)" class="header__button">{{ headerButtonInfo }}</button>
+        <button (click)="onClick(false)" class="header__button">{{ headerButtonContact }}</button>
+    </div>
+</div>
+<div class="headerImg">
+    <img class="headerImg__image" src="assets/img/car.png" alt="car" />
+</div>

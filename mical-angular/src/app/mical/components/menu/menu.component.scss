@@ -1,29 +1,29 @@
-@import '../../../../assets/scss/variables';
+@import "../../../../assets/scss/variables";
 
 .menu {
+  display: flex;
+  background-color: $color-violet;
+  border-bottom: 10px solid $color-black;
+
+  &__logo {
     display: flex;
-    background-color: $color-violet;
-    border-bottom: 10px solid $color-black;
+    flex-basis: 50%;
+    align-items: center;
+    margin-left: 50px;
+  }
 
-    &__logo {
-        display: flex;
-        flex-basis: 12%;
-        align-items: center;
-        justify-content: center;
+  &__container {
+    flex-basis: 50%;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+
+    @media screen and (max-width: 1200px) {
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
-
-    &__container {
-        flex-basis: 88%;
-    }
-
-    &__list {
-        display: flex;
-        justify-content: flex-end;
-        list-style: none;
-
-        @media screen and (max-width: 1200px) {
-        flex-wrap: wrap;
-        justify-content: space-around;
-        }
-    }
+  }
 }

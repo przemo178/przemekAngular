@@ -1,5 +1,27 @@
+@import "../../../assets/scss/variables";
+
 .mical-container {
-    &__text {
-        display: none;
+  &__text {
+    display: none;
+  }
+
+  &__header-section {
+    display: flex;
+    flex-direction: row;
+    padding: 40px 60px 0;
+    background-color: $color-violet;
+
+    @media screen and (max-width: 1024px) {
+      margin-bottom: 80px;
     }
+
+    @media screen and (max-width: 1600px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__carousel-section {
+    margin-top: -70px;
+  }
 }

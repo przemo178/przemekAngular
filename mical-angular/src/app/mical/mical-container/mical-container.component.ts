@@ -1,46 +1,19 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, OnInit } from '@angular/core';
 import { IMenuItem, ICarouselItem } from '../models/menu.interface';
+import { MenuService } from '../services/menu.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-mical-container',
   templateUrl: './mical-container.component.html',
   styleUrls: ['./mical-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MicalContainerComponent {
+export class MicalContainerComponent implements OnInit {
   // menu section
+  public menuItems$: BehaviorSubject<IMenuItem[]> = this._menuService.menuItems$;
 
-  public isAuthorize: boolean = false;
   public showText: boolean = false;
-
-  public unauthorizedMenu: IMenuItem[] = [
-    {
-      name: 'Login/Register',
-      url: 'login',
-    },
-  ];
-
-  public authorizedMenu: IMenuItem[] = [
-    {
-      name: 'Home',
-      url: 'home',
-    },
-    {
-      name: 'About',
-      url: 'about',
-    },
-    {
-      name: 'Furnitures',
-      url: 'furnitures',
-    },
-    {
-      name: 'Testimonial',
-      url: 'testimonial',
-    },
-    {
-      name: 'Contact Us',
-      url: 'contact-us',
-    },
-  ];
 
   public isVisible: boolean = false;
 
@@ -70,13 +43,13 @@ export class MicalContainerComponent {
       type: 'common',
     },
   ];
-  
-  getIsAuthorizeInfo(event: boolean) {
-    this.isAuthorize = event;
-  }
 
-  getMenuItems(): IMenuItem[] {
-    return this.isAuthorize ? this.authorizedMenu : this.unauthorizedMenu;
+  constructor(private _menuService: MenuService) {}
+
+  ngOnInit(): void {
+    this._menuService.getMenuItems().subscribe(menuItems => {
+      this._menuService.menuItems$.next(menuItems)
+    })
   }
 
   getIsCarouselInfo(event: boolean) {

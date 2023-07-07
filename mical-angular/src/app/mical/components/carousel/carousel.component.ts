@@ -1,27 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-  AfterContentInit,
-  OnChanges,
-  DoCheck,
-  AfterContentChecked,
-  AfterViewChecked,
-  OnDestroy,
-  SimpleChange,
-  SimpleChanges,
-} from '@angular/core';
+import { ChangeDetectionStrategy, AfterViewInit, Component, EventEmitter, Input, Output, OnInit, QueryList, ViewChild, ViewChildren, AfterContentInit, OnChanges, DoCheck, AfterContentChecked, AfterViewChecked, OnDestroy, SimpleChange, SimpleChanges } from '@angular/core';
 import { ICarouselItem } from '../../models/menu.interface';
 import { CarouselItemComponent } from '../carousel-item/carousel-item.component';
-import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
-import { CarouselService } from '../../services/carousel.service';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-carousel',
@@ -44,27 +24,26 @@ export class CarouselComponent
   public isVisibled$: BehaviorSubject<boolean> =
     this._carouselService.isVisible$;
 
-  constructor(private _carouselService: CarouselService) {}
-
-  @ViewChildren(CarouselItemComponent)
-  public carouselChild: QueryList<CarouselItemComponent>;
-  @ViewChild('naszDiv') public naszDivZmienna: HTMLDivElement;
+  @ViewChildren(CarouselItemComponent) public carouselChild: QueryList<CarouselItemComponent>; 
+  @ViewChild('naszDiv') public naszDivZmienna: HTMLDivElement; 
 
   observer: Observable<boolean> = new Observable();
   unsubscribe$: Subject<void> = new Subject<void>();
 
+  public isVisibled: boolean = false;
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges');
-    console.log(changes, 'SimpleChanges');
+    console.log('ngOnChanges')
+    console.log(changes, 'SimpleChanges')
   }
 
   ngOnInit(): void {
-    console.log(this.carouselChild, 'this.carouselChild w OnInit');
-    console.log('OnInit');
+    console.log(this.carouselChild, 'this.carouselChild w OnInit')
+    console.log('OnInit')
 
     this.observer.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
-      console.log('log');
-    });
+      console.log('log')
+    })
   }
 
   ngDoCheck(): void {

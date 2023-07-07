@@ -1,0 +1,72 @@
+<div class="lesson-form">
+    <div class="lesson-form__template-driven">
+        <h2>TEMPLATE DRIVEN FORM</h2>
+        <p>Dynamic text: {{ name }}</p>
+        <div>
+            <label>Name</label>
+            <input type="text" [(ngModel)]="name">
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="text" [(ngModel)]="email">
+        </div>
+        <div>
+            <button (click)="getValue()">get value</button>
+            <button (click)="submit()">Submit</button>
+        </div>
+    </div>
+
+
+
+<!-- REACTIVE FORMS -->
+
+
+
+    <div class="lesson-form__reactive-driven">
+        <h2>Reactive form</h2>
+        <form [formGroup]="reactiveForm">
+            <div class="lesson-form__item">
+                <label>Name</label>
+                <input type="text" formControlName="name">
+                <div *ngIf="isVATAccount$ | async">Wpisano numer konta do Urzędu Skarbowego. Zmień typ Przelewu</div>
+                <div class="lesson-form__error-container" *ngIf="reactiveForm.controls['name'].invalid && (reactiveForm.controls['name'].dirty || reactiveForm.controls['name'].touched)">
+                    <p class="lesson-form__error-item" *ngIf="reactiveForm.controls['name'].errors.required">
+                         Pole jest wymagane
+                    </p>
+                    <p class="lesson-form__error-item" *ngIf="reactiveForm.controls['name'].errors.minlength">
+                        Minimalna długość to 3 znaki
+                   </p>
+                </div>
+            </div>
+            
+            <div class="lesson-form__item">
+                <input type="checkbox" formControlName="haveSecondName">
+                <label>Czy ma drugie imie</label>
+            </div>
+            <div class="lesson-form__item" *ngIf="reactiveForm.get('haveSecondName').value === true">
+                <label>Drugie imie</label>
+                <input type="text" formControlName="secondName">
+            </div>
+            <div class="lesson-form__item">
+                <label>Email</label>
+                <input type="text" formControlName="email">
+            </div>
+            <div class="lesson-form__item" *ngIf="reactiveForm.get('name').value === 'przemek'">
+                <div>
+                    <input type="radio" id="show" name="visibilitySwitch" value="SHOW" formControlName="visibilitySwitch">
+                    <label for="show">Pokazać</label>
+                </div>
+                <div>
+                    <input type="radio" id="hide" name="visibilitySwitch" value="HIDE" formControlName="visibilitySwitch">
+                    <label for="hide">Ukryć</label>
+                </div>
+            </div>
+            <div class="lesson-form__item">
+                <button (click)="reactiveSubmit()" [disabled]="reactiveForm.invalid">Submit</button>
+            </div>
+        </form>
+        <h2 *ngIf="isInfoVisible$ | async">
+            pokazane info w zależności od kontrolki
+        </h2>
+    </div>
+</div>

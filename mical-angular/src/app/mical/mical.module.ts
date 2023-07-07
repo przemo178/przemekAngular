@@ -10,9 +10,11 @@ import { CarouselItemComponent } from './components/carousel-item/carousel-item.
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuService } from './services/menu.service';
+import { LessonFormComponent } from './components/lesson-form/lesson-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [MicalContainerComponent, MenuComponent, MenuItemComponent, HeaderComponent, CarouselComponent, CarouselItemComponent, ContactFormComponent],
-  imports: [CommonModule, MicalRoutingModule],
+  declarations: [MicalContainerComponent, LessonFormComponent, MenuComponent, MenuItemComponent, HeaderComponent, CarouselComponent, CarouselItemComponent, ContactFormComponent],
+  imports: [CommonModule, MicalRoutingModule, FormsModule, ReactiveFormsModule],
 })
 export class MicalModule {}

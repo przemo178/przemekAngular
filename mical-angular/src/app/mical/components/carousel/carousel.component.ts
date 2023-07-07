@@ -7,13 +7,22 @@ import { Observable, Subject, takeUntil } from 'rxjs';
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CarouselComponent implements OnChanges, OnInit, DoCheck, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked, OnDestroy {
-  editMode = false;
+export class CarouselComponent
+  implements
+    OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentChecked,
+    AfterContentInit,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy
+{
   @Input() public carouselItems: ICarouselItem[] = [];
-  @Output() public visibleEmitter: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  public isVisibled$: BehaviorSubject<boolean> =
+    this._carouselService.isVisible$;
 
   @ViewChildren(CarouselItemComponent) public carouselChild: QueryList<CarouselItemComponent>; 
   @ViewChild('naszDiv') public naszDivZmienna: HTMLDivElement; 
@@ -36,45 +45,52 @@ export class CarouselComponent implements OnChanges, OnInit, DoCheck, AfterConte
       console.log('log')
     })
   }
-  
+
   ngDoCheck(): void {
-    console.log(this.carouselChild, 'this.carouselChild w ngDoCheck')
-    console.log('ngDoCheck')
+    console.log(this.carouselChild, 'this.carouselChild w ngDoCheck');
+    console.log('ngDoCheck');
   }
 
   ngAfterContentInit(): void {
-    console.log(this.carouselChild, 'this.carouselChild w ngAfterContentInit')
-    console.log('ngAfterContentInit')
+    console.log(this.carouselChild, 'this.carouselChild w ngAfterContentInit');
+    console.log('ngAfterContentInit');
   }
 
-   ngAfterContentChecked(): void {
-    console.log(this.carouselChild, 'this.carouselChild w ngAfterContentChecked')
-    console.log('ngAfterContentChecked')
-   }
-   
+  ngAfterContentChecked(): void {
+    console.log(
+      this.carouselChild,
+      'this.carouselChild w ngAfterContentChecked'
+    );
+    console.log('ngAfterContentChecked');
+  }
+
   ngAfterViewInit(): void {
-    console.log(this.carouselChild, 'this.carouselChild w ngAfterViewInit')
-    console.log('AfterViewInit')
+    console.log(this.carouselChild, 'this.carouselChild w ngAfterViewInit');
+    console.log('AfterViewInit');
   }
 
   ngAfterViewChecked(): void {
-    console.log(this.carouselChild, 'this.carouselChild w ngAfterViewChecked')
-    console.log('ngAfterViewChecked')
+    console.log(this.carouselChild, 'this.carouselChild w ngAfterViewChecked');
+    console.log('ngAfterViewChecked');
   }
 
   ngOnDestroy(): void {
-    console.log(this.carouselChild, 'this.carouselChild w ngOnDestroy')
-    console.log('ngOnDestroy')
+    console.log(this.carouselChild, 'this.carouselChild w ngOnDestroy');
+    console.log('ngOnDestroy');
 
     this.unsubscribe$.next();
   }
 
-  visible(isVisible: boolean) {
-    this.visibleEmitter.emit(isVisible);
-    this.isVisibled = isVisible;
-  }
+  // visible(isVisible: boolean) {
+  //   this.visibleEmitter.emit(isVisible);
+  //   this.isVisibled = isVisible;
+  // }
 
-  switchEditMode() {
-    this.editMode = !this.editMode;
-  }
+  // visible() {
+  //   this._carouselService.isVisible$.next(!this.isVisibled$.getValue());
+  // }
+
+  // switchEditMode() {
+  //   this.editMode = !this.editMode;
+  // }
 }

@@ -6,8 +6,8 @@
     <app-header (buttonClick)="getIsCarouselInfo($event)"></app-header>
 </section>
 
-<section class="mical-container__carousel-section" *ngIf="isVisible">
-    <app-carousel [carouselItems]="getCarouselItems()"></app-carousel>
+<section class="mical-container__carousel-section" *ngIf="isVisible$">
+    <app-carousel [carouselItems]="carouselItems$ | async"></app-carousel>
 </section>
 
 <section class="mical-container__contact-section">

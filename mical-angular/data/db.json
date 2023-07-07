@@ -3,62 +3,26 @@
     {
       "id": 1,
       "title": "Auto Diagnose",
-      "imgName": "thr.png",
+      "imgName": "assets/img/thr.png",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque enim eget lorem consequat, eget.",
       "type": "innyTyp"
     },
     {
       "id": 2,
       "title": "Free Fuel",
-      "imgName": "thr1.png",
+      "imgName": "assets/img/thr1.png",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque enim eget lorem consequat, eget.",
       "type": "innyTyp"
     },
     {
       "id": 3,
       "title": "Change tires",
-      "imgName": "thr2.png",
+      "imgName": "assets/img/thr2.png",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque enim eget lorem consequat, eget.",
       "type": "common"
-    },
-    {
-      "title": "Change wheels",
-      "imgName": "thr2.png",
-      "description": "nasze teksty",
-      "type": "common",
-      "id": 4
-    },
-    {
-      "title": "Change wheels",
-      "imgName": "thr2.png",
-      "description": "nasze teksty",
-      "type": "common",
-      "id": 5
     }
   ],
-  "applications": [
-    {
-      "fullName": "xccdv",
-      "email": "sdfsdf",
-      "phoneNumber": "324",
-      "message": "sdfw",
-      "id": 1
-    },
-    {
-      "fullName": "xccdv",
-      "email": "sdfsdf",
-      "phoneNumber": "324",
-      "message": "sdfw",
-      "id": 2
-    },
-    {
-      "fullName": "xccdv",
-      "email": "sdfsdf",
-      "phoneNumber": "324",
-      "message": "sdfw",
-      "id": 3
-    }
-  ],
+  "applications": [],
   "menu": [
     {
       "name": "Home",

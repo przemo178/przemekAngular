@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   // tablica declarations jest to tablica do deklarowania komponentów, a także dyrektyw i pipe których używamy w naszej aplikacji.
   // Proba użycia komponentu bez jego deklaracji tutaj skonczy się bledem.
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   // w tym miejscu importujemy moduły stworzone przez nas, ale nie tylko.
   // Można wykorzystać np moduły dostarczone przez Angulara, czy korzystać z zewnętrzyncyh źródeł(bibliotek).np moduł HTTP
   providers: [],

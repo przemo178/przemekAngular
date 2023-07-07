@@ -1,0 +1,25 @@
+@import "../../../../assets/scss/variables";
+
+.lesson-form {
+  margin: 200px;
+  padding: 100px;
+  border: 1px solid red;
+
+  &__item {
+    margin: 10px 0;
+
+    label {
+      margin-right: 10px;
+    }
+  }
+  
+  &__error-container {
+    margin-top: 5px;
+  }
+  
+  &__error-item {
+    margin: 0;
+    color: red;
+    font-size: 8px;
+  }
+}

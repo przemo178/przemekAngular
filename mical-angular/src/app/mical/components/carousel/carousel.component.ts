@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, AfterViewInit, Component, EventEmitter, Input, Output, OnInit, QueryList, ViewChild, ViewChildren, AfterContentInit, OnChanges, DoCheck, AfterContentChecked, AfterViewChecked, OnDestroy, SimpleChange, SimpleChanges } from '@angular/core';
 import { ICarouselItem } from '../../models/menu.interface';
 import { CarouselItemComponent } from '../carousel-item/carousel-item.component';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs';
+import { CarouselService } from '../../services/carousel.service';
 
 @Component({
   selector: 'app-carousel',
@@ -31,6 +32,8 @@ export class CarouselComponent
   unsubscribe$: Subject<void> = new Subject<void>();
 
   public isVisibled: boolean = false;
+
+  constructor(private _carouselService: CarouselService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('ngOnChanges')

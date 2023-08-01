@@ -22,7 +22,59 @@
       "type": "common"
     }
   ],
-  "applications": [],
+  "applications": [
+    {
+      "fullName": "Przemo",
+      "email": "lis@op.pl",
+      "phoneNumber": "55566655",
+      "nationality": "",
+      "country": "poland",
+      "message": "jol jol",
+      "skills": [
+        null
+      ],
+      "id": 1
+    },
+    {
+      "fullName": "Olek Lisowski",
+      "email": "olek@op.pl",
+      "phoneNumber": "55555555",
+      "nationality": "",
+      "country": "poland",
+      "message": "hejo hejo",
+      "skills": [
+        null
+      ],
+      "id": 2
+    },
+    {
+      "fullName": "Olek Lisowski",
+      "email": "olek@op.pl",
+      "phoneNumber": "55555555",
+      "nationality": "",
+      "country": "poland",
+      "message": "hejo hejo",
+      "skills": [
+        null,
+        null
+      ],
+      "id": 3
+    },
+    {
+      "fullName": "Olek Lisowski",
+      "email": "olek@op.pl",
+      "phoneNumber": "55555555",
+      "nationality": "",
+      "country": "poland",
+      "message": "hejo hejo",
+      "skills": [
+        null,
+        null,
+        null
+      ],
+      "id": 4
+    }
+  ],
   "menu": [
     {
       "name": "Home",

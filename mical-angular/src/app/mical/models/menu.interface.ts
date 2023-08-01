@@ -10,3 +10,14 @@ export interface ICarouselItem {
   description: string;
   type: string;
 }
+
+export interface IFormItem {
+  id?: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  nationality?: string;
+  country?: string;
+  message?: string;
+  skills?: [];
+}

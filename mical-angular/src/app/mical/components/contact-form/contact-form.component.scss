@@ -74,16 +74,22 @@
     }
   }
 
-  &__form-textArea {
-    background-color: $color-darkBlue;
-    border: none;
-    font-family: "Rubik", sans-serif;
-    font-size: 1rem;
+  &__form-item {
+    margin: 10px;
     color: white;
-    border-bottom: 1px solid white;
-    &:focus {
-      box-sizing: border-box;
-      outline: none;
+  }
+
+  &__form-error-item {
+    color: red;
+  }
+
+  &__form-button {
+    button {
+      margin: 40px 0;
+      width: 150px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
     }
   }
 
@@ -116,6 +122,7 @@
   }
 
   &__button {
+    display: none;
     width: 150px;
     height: 50px;
     padding: 0;
@@ -170,6 +177,7 @@
   }
 
   &__button-subscribe {
+    font-size: 1.2rem;
     flex-grow: 1;
     height: 50px;
     padding: 0;
@@ -195,4 +203,90 @@
     text-align: center;
     line-height: 3rem;
   }
+}
+
+label {
+  color: white;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.arrayContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+
+  input {
+    margin: 5px;
+    height: 30px;
+  }
+}
+
+.buttonAddSkill {
+  width: 100px;
+  height: 30px;
+  background-color: rgb(57, 115, 221);
+  color: rgb(72, 212, 16);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+h3 {
+  color: white;
+}
+
+#table {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  border-collapse: separate;
+  width: 100%;
+}
+
+#table td,
+#table th {
+  padding: 5px;
+}
+
+#table th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: #818181;
+  color: white;
+}
+
+.buttonFetch {
+  margin: 10px;
+  color: white;
+  font-weight: 700;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  background-color: rgb(93, 236, 93);
+}
+
+.buttonDeleteAll {
+  margin: 10px;
+  color: white;
+  font-weight: 700;
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  background-color: rgb(190, 55, 37);
+}
+
+.buttonDeleteItem {
+  margin: 5px;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(146, 47, 47);
+}
+
+.buttonEditItem {
+  margin: 5px;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(45, 56, 155);
 }

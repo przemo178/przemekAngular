@@ -14,7 +14,16 @@ import { LessonFormComponent } from './components/lesson-form/lesson-form.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [MicalContainerComponent, LessonFormComponent, MenuComponent, MenuItemComponent, HeaderComponent, CarouselComponent, CarouselItemComponent, ContactFormComponent],
+  declarations: [
+    MicalContainerComponent,
+    LessonFormComponent,
+    MenuComponent,
+    MenuItemComponent,
+    HeaderComponent,
+    CarouselComponent,
+    CarouselItemComponent,
+    ContactFormComponent,
+  ],
   imports: [CommonModule, MicalRoutingModule, FormsModule, ReactiveFormsModule],
 })
 export class MicalModule {}

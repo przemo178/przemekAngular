@@ -11,17 +11,69 @@
                     class="fa-solid fa-envelope contact__contact-icon"></i>demo@gmail.com</a>
         </div>
     </div>
+
+    <!-- contact reactive form -->
+
     <div class="contact__container-content">
-        <form class="contact__form" id="applicationsForm">
-            <input class="contact__form-input" type="text" name="fullName" placeholder="Full Name">
-            <input class="contact__form-input" type="text" name="email" placeholder="Email">
-            <input class="contact__form-input" type="number" name="phoneNumber" placeholder="Phone Number">
-            <textarea class="contact__form-textArea" name="message" placeholder="Message" rows="6"></textarea>
+        <form class="contact__form" [formGroup]="contactForm" #conForm="ngForm" (ngSubmit)="submitForm(conForm.value)">
+            <input class="contact__form-input" type="text" name="fullName" placeholder="Full Name"
+                formControlName="fullName" ngModel>
+            <div class="contact__form-error-container"
+                *ngIf="contactForm.controls['fullName'].invalid && (contactForm.controls['fullName'].dirty || contactForm.controls['fullName'].touched)">
+                <p class="contact__form-error-item" *ngIf="contactForm.controls['fullName'].errors.required">
+                    Pole jest wymagane.
+                </p>
+                <p class="contact__form-error-item" *ngIf="contactForm.controls['fullName'].errors.minlength">
+                    Minimalna długość to 3 znaki.
+                </p>
+            </div>
+            <input class="contact__form-input" type="text" name="email" placeholder="Email" formControlName="email"
+                ngModel>
+            <input class="contact__form-input" type="text" name="phoneNumber" placeholder="Phone Number"
+                formControlName="phoneNumber" ngModel>
+            <div class="contact__form-error-container"
+                *ngIf="contactForm.controls['phoneNumber'].invalid && (contactForm.controls['phoneNumber'].dirty || contactForm.controls['phoneNumber'].touched)">
+                <p class="contact__form-error-item" *ngIf="contactForm.controls['phoneNumber'].errors.required">
+                    Pole jest wymagane.
+                </p>
+                <p class="contact__form-error-item" *ngIf="contactForm.controls['phoneNumber'].errors.digits">
+                    Tutaj możesz wpisać tylko cyfry.
+                </p>
+            </div>
+            <div class="contact__form-item">
+                <input type="checkbox" formControlName="nationality" ngModel>
+                <label>Nationality <i>(Optional)</i></label>
+            </div>
+            <div class="contact__form-item" *ngIf="contactForm.get('nationality').value === true">
+                <label for="country">Country</label>
+                <select id="country" formControlName="country" ngModel>
+                    <option value="poland" selected>Poland</option>
+                    <option value="croatia">Croatia</option>
+                    <option value="italy">Italy</option>
+                    <option value="germany">Germany</option>
+                    <option value="ireland">Ireland</option>
+                    <option value="usa">USA</option>
+                </select>
+            </div>
+            <input class="contact__form-input" type="text" name="message" placeholder="Message"
+                formControlName="message" ngModel>
+            <div class="arrayContainer" formArrayName="skills">
+                <ng-container *ngFor="let skill of contactForm.get('skills')['controls']" ; index as i>
+                    <input type="text" placeholder="add skill..." formControlName="{{ i }}" ngModel>
+                </ng-container>
+                <button class="buttonAddSkill" (click)="addSkills()">+Add Skill</button>
+            </div>
+            <div class="contact__form-button">
+                <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+            </div>
         </form>
         <div class="contact__map">
             <img class="contact__map-img" src="assets/img/map.jpg" alt="map">
         </div>
     </div>
+
+
+
     <div class="contact__container-socials">
         <button class="contact__button button" id="btnSubmitApp">Send</button>
         <div class="contact__socials">
@@ -42,3 +94,32 @@
         <p class="contact__footer">Copyright 2023 All Right Reserved By Free html Templates</p>
     </div>
 </div>
+
+<h3>All Data from Form</h3>
+<table id="table">
+    <tr>
+        <th>#</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone no</th>
+        <th>Nationality</th>
+        <th>Country</th>
+        <th>Text</th>
+        <th>Skills</th>
+    </tr>
+    <tr *ngFor="let data of allData; index as i">
+        <th>{{ i + 1 }}</th>
+        <th>{{ data.fullName }}</th>
+        <th>{{ data.email }}</th>
+        <th>{{ data.phoneNumber }}</th>
+        <th>{{ data.nationality }}</th>
+        <th>{{ data.country }}</th>
+        <th>{{ data.message }}</th>
+        <th>{{ data.skills }}</th>
+        <th><button class="buttonDeleteItem" type="submit" (click)="deleteData(data.id)">Delete Data</button>
+            <!-- <button class="buttonEditItem" type="submit" (click)="editData(data.id)">Edit Data</button> -->
+        </th>
+    </tr>
+</table>
+<button class="buttonFetch" type="submit" (click)="fetchData()">Fetch Data</button>
+<button class="buttonDeleteAll" type="submit" (click)="deleteAllData()">Delete All Data</button>
